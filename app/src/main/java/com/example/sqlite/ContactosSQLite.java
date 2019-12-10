@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 
 public class ContactosSQLite extends SQLiteOpenHelper {
     //Sentencia SQL para crear la tabla de Usuarios
-    String sqlCreate ="CREATE TABLE Contactos (idUsuario INTEGER PRIMARY KEY," +" nombre TEXT, apellido TEXT, numero INTEGER)";
+    String sqlCreate ="CREATE TABLE Contactos (idUsuario INTEGER PRIMARY KEY AUTOINCREMENT ," +" nombre TEXT, apellido TEXT, numero INTEGER)";
 
     public ContactosSQLite(Context contexto, String nombre, CursorFactory factory, int version) {
         super(contexto, nombre, factory, version);
