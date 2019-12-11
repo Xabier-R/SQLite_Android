@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 
 public class ContactosSQLite extends SQLiteOpenHelper {
-    //Sentencia SQL para crear la tabla de Usuarios
+    //Sentencia SQL para crear la tabla de Contactos
     String sqlCreate ="CREATE TABLE Contactos (idUsuario INTEGER PRIMARY KEY AUTOINCREMENT ," +" nombre TEXT, apellido TEXT, numero INTEGER)";
 
     public ContactosSQLite(Context contexto, String nombre, CursorFactory factory, int version) {
@@ -25,7 +25,7 @@ public class ContactosSQLite extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
 
-        db.execSQL("DROP TABLE IF EXISTS Usuarios");
+        db.execSQL("DROP TABLE IF EXISTS Contactos");
         db.execSQL(sqlCreate);
     }
 

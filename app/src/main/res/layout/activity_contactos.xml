@@ -1,0 +1,83 @@
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+
+
+<TextView
+    android:id="@+id/textViewNombre"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Nombre:" />
+
+<EditText
+    android:id="@+id/editTextNombre"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@+id/textViewNombre"
+    android:clickable="false" />
+
+
+<TextView
+    android:id="@+id/textViewApellido"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Apellido:"
+    android:layout_below="@+id/editTextNombre"/>
+
+<EditText
+    android:id="@+id/editTextApellido"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/editTextNombre"
+    android:layout_toRightOf="@+id/textViewApellido" />
+
+<TextView
+    android:id="@+id/textViewNumero"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Numero:"
+    android:layout_below="@+id/editTextApellido"/>
+
+
+<EditText
+    android:id="@+id/editTextNumero"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@+id/textViewNombre"
+    android:layout_below="@+id/editTextApellido"/>
+
+
+
+<Button
+    android:id="@+id/btnInsertar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
+    android:text="Añadir Contacto"
+    android:layout_below="@+id/editTextNumero"/>
+
+
+<Button
+    android:id="@+id/btnConsultar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="150dp"
+    android:layout_marginTop="50dp"
+    android:text="Consultar"
+    android:layout_below="@+id/btnInsertar"/>
+
+
+<EditText
+    android:id="@+id/editText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ems="10"
+    android:inputType="textMultiLine"
+    android:layout_below="@+id/btnConsultar"/>
+
+
+</RelativeLayout>

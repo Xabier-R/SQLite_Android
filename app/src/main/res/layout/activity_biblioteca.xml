@@ -1,0 +1,206 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewLibro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LIBROS:"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:id="@+id/textViewISBN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ISBN:"
+        android:layout_below="@+id/textViewLibro"/>
+
+    <EditText
+        android:id="@+id/editTextISBN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewLibro"
+        android:layout_toRightOf="@+id/textViewISBN"/>
+
+
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Titulo:"
+        android:layout_below="@+id/editTextISBN"/>
+
+
+    <EditText
+        android:id="@+id/editTextTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textViewTitulo"
+        android:clickable="false"
+        android:layout_below="@+id/editTextISBN" />
+
+
+
+    <Button
+        android:id="@+id/btnInsertarL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="85dp"
+        android:text="Añadir Libro"
+        android:layout_below="@+id/editTextTitulo"/>
+
+
+    <Button
+        android:id="@+id/btnBorrarL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Borrar Libro"
+        android:layout_toRightOf="@+id/btnInsertarL"
+        android:layout_below="@+id/editTextTitulo"/>
+
+
+    <TextView
+        android:id="@+id/textViewUsuarios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="USUARIOS:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/btnBorrarL"/>
+
+    <TextView
+        android:id="@+id/textViewID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="ID Usuario:"
+        android:layout_below="@+id/textViewUsuarios"/>
+
+    <EditText
+        android:id="@+id/editTextID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textViewID"
+        android:layout_below="@+id/textViewUsuarios"/>
+
+
+    <TextView
+        android:id="@+id/textViewNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre:"
+        android:layout_below="@+id/editTextID"/>
+
+
+    <EditText
+        android:id="@+id/editTextNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textViewNombre"
+        android:clickable="false"
+        android:layout_below="@+id/editTextID" />
+
+
+
+    <Button
+        android:id="@+id/btnInsertarUsu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="85dp"
+        android:text="Añadir Usuario"
+        android:layout_below="@+id/editTextNombre"/>
+
+
+    <Button
+        android:id="@+id/btnBorrarUsu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Borrar Usuario"
+        android:layout_toRightOf="@+id/btnInsertarUsu"
+        android:layout_below="@+id/editTextNombre"/>
+
+    <TextView
+        android:id="@+id/textViewPrestamos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PRESTAMOS:"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/btnBorrarUsu"/>
+
+    <TextView
+        android:id="@+id/textViewISBNPres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ISBN:"
+        android:layout_below="@+id/textViewPrestamos"/>
+
+
+    <EditText
+        android:id="@+id/editTextISBNPres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textViewNombre"
+        android:clickable="false"
+        android:layout_below="@+id/textViewPrestamos" />
+
+
+    <TextView
+        android:id="@+id/textViewIDPres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID:"
+        android:layout_below="@+id/editTextISBNPres"/>
+
+
+    <EditText
+        android:id="@+id/editTextIDPres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/textViewIDPres"
+        android:clickable="false"
+        android:layout_below="@+id/editTextISBNPres" />
+
+
+    <Button
+        android:id="@+id/btnInsertarPrest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="45dp"
+        android:text="Realzar Prestamo"
+        android:layout_below="@+id/editTextIDPres"/>
+
+    <Button
+        android:id="@+id/btnBorrarPrest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Realzar Prestamo"
+        android:layout_toRightOf="@+id/btnInsertarPrest"
+        android:layout_below="@+id/editTextIDPres"/>
+
+
+
+
+
+
+
+
+</RelativeLayout>
