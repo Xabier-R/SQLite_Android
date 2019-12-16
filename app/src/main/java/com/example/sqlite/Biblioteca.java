@@ -132,16 +132,16 @@ public class Biblioteca extends AppCompatActivity {
                     }
                     catch (SQLiteException e)
                     {
-                       /* AlertDialog.Builder dialogo1 = new AlertDialog.Builder();
+                        /*AlertDialog.Builder dialogo1 = new AlertDialog.Builder();
                         dialogo1.setTitle("Error al insertar");
-                        dialogo1.setMessage("El libro o el usuario no existen");
+                        dialogo1.setMessage("El libro o el usuario ya existen");
 
                         dialogo1.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         // Continue with delete operation
                                     }
                                 });*/
-                       
+
                     }
 
 

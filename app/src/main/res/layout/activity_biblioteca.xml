@@ -184,7 +184,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginStart="45dp"
-        android:text="Realzar Prestamo"
+        android:text="Realizar Prestamo"
         android:layout_below="@+id/editTextIDPres"/>
 
     <Button
@@ -192,12 +192,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Realzar Prestamo"
+        android:text="Borrar Prestamo"
         android:layout_toRightOf="@+id/btnInsertarPrest"
         android:layout_below="@+id/editTextIDPres"/>
-
-
-
 
 
 
