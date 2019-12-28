@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
@@ -17,8 +18,8 @@ public class Biblioteca extends AppCompatActivity {
 
     private SQLiteDatabase db;
     private  BibliotecaSQLite bidbh;
-    private Button insertarL,borrarL,insertarUsu,borrarUsu,insertarPres,borrarPres;
-    private EditText editTextISBN,editTextTitulo,editTextID,editTextNombre;
+    private Button insertarL,borrarL,consultarL,insertarUsu,borrarUsu,consultarUsu,insertarPres,borrarPres,consultarPres;
+    private EditText editTextISBN,editTextTitulo,editTextID,editTextNombre,editTextL,editTextUsu,editTextPrest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,8 @@ public class Biblioteca extends AppCompatActivity {
         borrarL = findViewById(R.id.btnBorrarL);
         editTextISBN = findViewById(R.id.editTextISBN);
         editTextTitulo = findViewById(R.id.editTextTitulo);
+        consultarL= findViewById(R.id.btnConsultarL);
+        editTextL= findViewById(R.id.editTextL);
 
 
         //Usuarios
@@ -37,11 +40,15 @@ public class Biblioteca extends AppCompatActivity {
         borrarUsu = findViewById(R.id.btnBorrarUsu);
         editTextID = findViewById(R.id.editTextID);
         editTextNombre = findViewById(R.id.editTextNombre);
+        consultarUsu= findViewById(R.id.btnConsultarUsu);
+        editTextUsu= findViewById(R.id.editTextUsu);
 
 
         //Prestamos
         insertarPres = findViewById(R.id.btnInsertarPrest);
         borrarPres = findViewById(R.id.btnBorrarPrest);
+        consultarPres= findViewById(R.id.btnConsultarPrest);
+        editTextPrest= findViewById(R.id.editTextPrest);
 
 
         bidbh = new BibliotecaSQLite(this, "DBBiblioteca", null, 1);
@@ -82,6 +89,36 @@ public class Biblioteca extends AppCompatActivity {
             }
 
         });
+
+
+
+
+        consultarL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                editTextL.setText("");
+
+                Cursor c =db.rawQuery("SELECT ISBN, titulo FROM Libros", null);
+                if (c.moveToFirst()){
+                    //Recorremos el cursor hasta que no haya más registros.
+                    do {int ISBN = c.getInt(0);
+                        String titulo =c.getString(1);
+
+
+                        editTextL.append (ISBN +" - "+titulo + "\n" );
+
+                    }
+                    while (c.moveToNext());
+
+                }
+
+
+            }
+
+        });
+
+
         insertarUsu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,6 +153,32 @@ public class Biblioteca extends AppCompatActivity {
             }
 
         });
+
+        consultarUsu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                editTextUsu.setText("");
+
+                Cursor c =db.rawQuery("SELECT idUsuario, Nombre FROM Usuarios", null);
+                if (c.moveToFirst()){
+                    //Recorremos el cursor hasta que no haya más registros.
+                    do {int idUsuario = c.getInt(0);
+                        String Nombre =c.getString(1);
+
+
+                        editTextUsu.append (idUsuario +" - "+Nombre + "\n" );
+
+                    }
+                    while (c.moveToNext());
+
+                }
+
+
+            }
+
+        });
+
         insertarPres.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -123,26 +186,13 @@ public class Biblioteca extends AppCompatActivity {
 
                 //Si hemos abierto correctamente la base de datos
                 if (db != null) {
-                    try{
-                        ContentValues nuevoUsuario = new ContentValues();
-                        nuevoUsuario.put("ISBN", editTextISBN.getText().toString());
-                        nuevoUsuario.put("idUsuario", editTextID.getText().toString());
 
-                        db.insert("Prestamos", null, nuevoUsuario);
-                    }
-                    catch (SQLiteException e)
-                    {
-                        /*AlertDialog.Builder dialogo1 = new AlertDialog.Builder();
-                        dialogo1.setTitle("Error al insertar");
-                        dialogo1.setMessage("El libro o el usuario ya existen");
+                    ContentValues nuevoUsuario = new ContentValues();
+                    nuevoUsuario.put("ISBN", editTextISBN.getText().toString());
+                    nuevoUsuario.put("idUsuario", editTextID.getText().toString());
 
-                        dialogo1.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        // Continue with delete operation
-                                    }
-                                });*/
+                    db.insert("Prestamos", null, nuevoUsuario);
 
-                    }
 
 
                 }
@@ -162,6 +212,34 @@ public class Biblioteca extends AppCompatActivity {
                     db.delete("Usuarios", "ISBN" + "=" + editTextISBN.getText().toString()+" +"+"idUsuario"+ "=" + editTextID.getText().toString(), null);
 
                 }
+
+            }
+
+        });
+
+
+
+
+        consultarPres.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                editTextPrest.setText("");
+
+                Cursor c =db.rawQuery("SELECT ISBN, idUsuario FROM Prestamos", null);
+                if (c.moveToFirst()){
+                    //Recorremos el cursor hasta que no haya más registros.
+                    do {int ISBN = c.getInt(0);
+                        int idUsuario =c.getInt(1);
+
+
+                        editTextPrest.append (ISBN +" - "+idUsuario + "\n" );
+
+                    }
+                    while (c.moveToNext());
+
+                }
+
 
             }
 

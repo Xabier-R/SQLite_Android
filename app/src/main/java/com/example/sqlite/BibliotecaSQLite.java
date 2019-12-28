@@ -8,8 +8,8 @@ public class BibliotecaSQLite extends SQLiteOpenHelper {
     //Sentencias SQL para crear las tablas
 
     String sqlCreate1 ="CREATE TABLE Libros (ISBN INTEGER PRIMARY KEY ," +" Titulo TEXT)";
-    String sqlCreate2 ="CREATE TABLE Usuarios (idUsuario INTEGER PRIMARY KEY ," +" Nombre TEXT)";
-    String sqlCreate3 ="CREATE TABLE Prestamos (ISBN INTEGER  REFERENCES  Libros(ISBN)," +" idUsuario TEXT  REFERENCES  Usuarios(idUsuario), PRIMARY KEY (ISBN,idUsuario) )";
+    String sqlCreate2 ="CREATE TABLE Usuarios ( INTEGER PRIMARY KEY ," +" Nombre TEXT)";
+    String sqlCreate3 ="CREATE TABLE Prestamos (ISBN INTEGER  REFERENCES  Libros(ISBN)," +" idUsuario INTEGER  REFERENCES  Usuarios(idUsuario), PRIMARY KEY (ISBN,idUsuario) )";
 
 
 
